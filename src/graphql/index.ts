@@ -4,7 +4,7 @@ import { GraphQLSchema } from 'graphql'
 import { makeExecutableSchema } from 'graphql-tools'
 import { resolver as UserResolver, typeDef as User } from './Users'
 import { schemaDirectives, typeDef as Directive } from './Directive'
-import { ROLES } from '../configs/constant'
+import { ROLES } from '../configs/constants'
 
 // we create empty main types, we can later extend them in the shards
 const Query = gql`
