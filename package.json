@@ -35,7 +35,8 @@
     "moment": "^2.24.0",
     "mongoose": "^5.9.2",
     "supertest": "^4.0.2",
-    "winston": "^3.2.1"
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.4.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
