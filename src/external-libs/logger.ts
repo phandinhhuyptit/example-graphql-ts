@@ -1,6 +1,6 @@
 import moment from "moment";
 import { createLogger, transports, format } from "winston";
-const DailyRotateFile = require("winston-daily-rotate-file");
+require("winston-daily-rotate-file");
 ​
 const customFormat = format.printf(
   ({ timestamp, level, message }) => `[${timestamp}] {${level}:${message}}`
@@ -15,7 +15,7 @@ const options = {
   level: "info",
   format: format.combine(timestampWithTimezone(), format.json(), customFormat),
   transports: [
-    new DailyRotateFile({
+    new transports.DailyRotateFile({
       name: "info",
       datePattern: "YYYYMMDD",
       zippedArchive: true,
@@ -26,7 +26,7 @@ const options = {
       level: "info", // info and below to rotate
       filename: `${process.cwd()}/logs/%DATE%-info.log`
     }),
-    new DailyRotateFile({
+    new transports.DailyRotateFile({
       name: "error",
       datePattern: "YYYYMMDD",
       zippedArchive: true,
@@ -59,7 +59,7 @@ if (process.env.NODE_ENV !== "test") {
 ​
 // create a stream object with a 'write' function that will be used by `morgan`
 logger.stream = {
-  write: function(message, encoding) {
+  write: function(message : any, encoding :any) {
     // use the 'info' log level so the output will be picked up by both transports (file and console)
     logger.info(message);
   }
