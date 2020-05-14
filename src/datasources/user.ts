@@ -8,7 +8,7 @@ export interface IUserCacheAPI {
 }
 
 class UserAPI<TContext> extends DataSource {
-  private context!: TContext
+  private context!: TContext    
   private store!: UserModel
 
   private loader = new DataLoader(async (ids: string[]) => {

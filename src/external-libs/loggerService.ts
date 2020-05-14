@@ -72,17 +72,17 @@ class LoggerService {
   //   });
   // }
 ​
-  async warn(message : string) {
+  async warn(message: string) {
     this.logger.log("warn", message);
   }
 ​
-  async warn(message : string, obj) {
+  async  warn(message: string, obj: object) {
     this.logger.log("warn", message, {
       obj,
     });
   }
 ​
-  async error(error, additionalData) {
+  async error(error : any, additionalData : any ) {
     let message = error;
     // Error-like
     if (error && error.message && error.stack) {
